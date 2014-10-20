@@ -1,0 +1,7 @@
+Visitor Pattern
+
+Seems to be best for running procedural (as opposed to functional) code on objects, without those procedures needing to pollute the objects themselves.
+
+Here, I've made two different types "visitable" via the Visitee wrapper class. Visitee's #accept method takes a polymorphic visitor and then calls visitor.visit(@object). The resulting action depends upon the class of @object, via a crude Rubyish version of method overloading.
+
+The visitor pattern simulates double dispatch. Double dispatch means that we choose the concrete function to call based on the classes of two objects. When we call visitor.accept(visitor), the concrete function that is executed depends upon both the visitor and the visitee's respective classes.
